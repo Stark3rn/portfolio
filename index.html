@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilian Bastard - Portfolio Cybersécurité</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="scrollToSection('home')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Lilian Bastard Naminzo</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="scrollToSection('home')" class="active">Accueil</a></li>
+                <li><a onclick="scrollToSection('skills')">Compétences</a></li>
+                <li><a onclick="scrollToSection('projects')">Projets</a></li>
+                <li><a onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Lilian Bastard Naminzo</h1>
+            <h2>Blue Teamer <strong><span class="gradient-text">@ Bachelor Cybersécurité - ESIEA</span></strong></h2>
+            <p>Threat Intelligence, Administration systèmes Linux, Réseaux...</p>
+            <div class="hero-info">
+                <img src="svg/warning.svg" alt="Warning" class="warning-icon">
+                <h2>A la recherche d'un stage de 2 à 3 mois durant la période juin-aout</h2>
+            </div>
+            <div class="git-project-btn" style="margin-right: 30%; margin-left: 30%;">
+                <a href="docs/my_cv.pdf" download="" aria-label="Télécharger le CV de Lilian BASTARD NAMINZO">
+                    Télécharger mon CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" id="skills">
+        <h2>Compétences Techniques</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <span class="skill-name">Programmation</span>
+                <span class="skill-desc">Programmation informatique en langages C & Python<br>Programmation Orientée Objet, Programmation Modulaire, Récursivité, Multithreading, Automates, Interfaces Graphiques, Normes de sécurité de <span class="gradient-text">l'ANSSI</span></span>
+            </div>
+            <div class="skill-card">
+                <span class="skill-name">Threat Intelligence</span>
+                <span class="skill-desc">Utilisation de bases de données Malware (<span class="gradient-text">Malware-Bazaar</span>, <span class="gradient-text">Virus Total</span>), Détection de IoCs (Indicators Of Compromise), utilisation de règles <span class="gradient-text">Yara</span>, Framework <span class="gradient-text">MITRE</span></span>
+            </div>
+            <div class="skill-card">
+                <span class="skill-name">Administration Linux</span>
+                <span class="skill-desc">Configuration et durcissement de serveurs (SSH, Web, SMTP...), scripting Bash, Automatisation de tâches (crontab)</span>
+            </div>
+            <div class="skill-card">
+                <span class="skill-name">Développement Web Full Stack</span>
+                <span class="skill-desc">Développement de sites internet via les langages HTML / CSS / JavaScript / SQL / PHP. Implémentation de <span class="gradient-text">bases de données</span>, protection des données via cryptographie, mesures <span class="gradient-text">anti injections XSS</span>, manipulation du DOM & du BOM & serveurs NodeJS (express)</span>
+            </div>
+            <div class="skill-card">
+                <span class="skill-name">Virtualisation / Conteneurisation</span>
+                <span class="skill-desc">Utilisation d'hyperviseurs tels que <span class="gradient-text">Virtual Box</span> afin d'isoler des systèmes. Configuration des modes de réseaux (NAT, Bridge, NAT Network...), Shared Folders. Utilisation de <span class="gradient-text">Docker</span> et création de Dockerfiles afin de conteneuriser des applications / serveurs.</span>
+            </div>
+            <div class="skill-card">
+                <span class="skill-name">Architecture matérielle</span>
+                <span class="skill-desc">Compréhension du fonctionnement d'une machine en profondeur : notions de <span class="gradient-text">North Bridge</span> / <span class="gradient-text">South Bridge</span>, Montage d'ordinateurs, utilisation de SoC (MCU & MPU), Architectures de processeur</span>
+            </div>
+            <div class="skill-card">
+                <span class="skill-name">Réseaux</span>
+                <span class="skill-desc">Connaissance du <span class="gradient-text">Modèle OSI</span>, Modélisation de réseaux <span class="gradient-text">Cisco Packet Tracer</span>, Protocoles TCP/IP, Sous-Réseautage... Attaques basiques : Man In The Middle, ARP Spoofing, MAC Flooding, Attaque par déconnexion WiFi</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+        <h2>Projets</h2>
+
+        <input
+            type="text"
+            id="projectSearch"
+            placeholder="Rechercher un projet (Python, Sécurité, Linux...)"
+            onkeyup="applyFilters()"
+        />
+
+        <div class="project-filters">
+            <button class="filter-btn active" onclick="filterByCategory('all', event)">Tous</button>
+            <button class="filter-btn" onclick="filterByCategory('blue-team', event)">Blue Team</button>
+            <button class="filter-btn" onclick="filterByCategory('threat-intel', event)">Threat Intelligence</button>
+            <!--- <button class="filter-btn" onclick="filterByCategory('reverse', event)">Reverse</button> --->
+            <button class="filter-btn" onclick="filterByCategory('python', event)">Python</button>
+            <button class="filter-btn" onclick="filterByCategory('langage-c', event)">Langage C</button>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card" data-tags="blue-team threat-intel python">
+                <div class="project-image"><img src="svg/integrity_check.svg" width="100%" height="100%"></div>
+                <div class="project-content">
+                    <h3>Integrity Check</h3>
+                    <div class="project-tags">
+                        <span class="tag tag-blue">Blue Team</span>
+                        <span class="tag tag-green">Python</span>
+                        <span class="tag tag-purple">Threat Intelligence</span>
+                    </div>
+                    <p>Logiciel permettant d'analyser des fichiers via interface graphique PyQt5. Permet d'afficher des informations telles que : 
+                    <ul>
+                        <li>Informations génériques du fichier (nom, chemin, taille, timestamps d'accès...)</li>
+                        <li>Hashs du fichier : MD5, SHA1, SHA256; mais aussi Fuzzy Hash MD5 pour analyse dynamique</li>
+                        <li>Calcul de l'entropie de Shannon pour détecter chiffrements & obfuscations de code</li>
+                        <li>Détection d'IoCs / Signatures via des règles YARA modifiables</li>
+                        <li>Exportation des résultats d'analyses sous formats JSON, Markdown ou HTML</li>
+                    </ul></p>
+                    <div class="git-project-btn">
+                        <a href="https://github.com/Stark3rn/IntegrityCheck" target="_blank">Visiter le GitHub</a>
+                    </div>
+                    <span class="project-tech">Python · Threat Intelligence</span>
+                </div>
+            </div>
+
+            <div class="project-card" data-tags="langage-c">
+                <div class="project-image"><img src="svg/shell.svg" width="100%" height="100%"></div>
+                <div class="project-content">
+                    <h3>WinBash</h3>
+                    <div class="project-tags">
+                        <span class="tag tag-orange">Langage C</span>
+                    </div>
+                    <p>Recréation d'un shell type Bash. Compatible Windows & Linux :
+                        <ul>
+                            <li>Listing de fichiers avancés avec affichage des Alternative Data Streams (Windows)</li>
+                            <li>Commandes de base (cat, ls, touch, echo...) avec flags</li>
+                            <li>Parsing de commandes / arguments</li>
+                        </ul>
+                    </p>
+                    <div class="git-project-btn">
+                        <a href="https://github.com/Stark3rn/winbash" target="_blank">Visiter le GitHub</a>
+                    </div>
+                    <br>
+                    <span class="project-tech">C · Windows · Linux</span>
+                </div>
+            </div>
+
+            <div class="project-card" data-tags="blue-team langage-c">
+                <div class="project-image"><img src="svg/zip.svg" width="100%" height="100%"></div>
+                <div class="project-content">
+                    <h3>LINA - Zip Manager</h3>
+                    <div class="project-tags">
+                        <span class="tag tag-orange">Langage C</span>
+                        <span class="tag tag-blue">Blue Team</span>
+                    </div>
+                    <p>Gestionnaire de fichiers compressés avec interface graphique SDL2 qui permet :
+                        <ul>
+                            <li>Compression de fichiers / dossiers</li>
+                            <li>Affichage des métadonnées d'une archive ZIP (méthode, nombre d'entrées, contenu etc...)</li>
+                            <li>Décompression uniquement <span class="gradient-text">APRES analyse</span> du contenu et vérification via l'API de VirusTotal</li>
+                        </ul>
+                    </p>
+                    <div class="git-project-btn">
+                        <a href="https://github.com/Stark3rn/LINA_Zip_Manager" target="_blank">Visiter le GitHub</a>
+                    </div>
+                    <br>
+                    <span class="project-tech">C · Windows · Linux</span>
+                </div>
+            </div>
+
+            <div class="project-card" data-tags="blue-team threat-intel python">
+                <div class="project-image"><img src="img/raccoon_crawler.png" width="100%" height="100%"></div>
+                <div class="project-content">
+                    <h3>Raccoon Crawler</h3>
+                    <div class="project-tags">
+                        <span class="tag tag-blue">Blue Team</span>
+                        <span class="tag tag-green">Python</span>
+                        <span class="tag tag-purple">Threat Intelligence</span>
+                    </div>
+                    <p>Outil de veille avancé avec interface PyQT5 qui prend en charge :
+                        <ul>
+                            <li>Crawling de flux RSS via de vastes listes</li>
+                            <li>Crawling de réseaux sociaux (Telegram) sur les sujets de la cybersécurité</li>
+                            <li>Traduction via des api de traduction</li>
+                            <li>Stockage des datas dans une base de données SQLite3</li>
+                            <li>Possibilité d'ajouter des feeds / canaux / serveurs de réseaux sociaux uns par uns ou via fichiers OPML, CSV ou JSON</li>
+                        </ul>
+                    </p>
+                    <div class="git-project-btn">
+                        <a href="" target="_blank">Visiter le GitHub</a>
+                    </div>
+                    <br>
+                    <span class="project-tech">Python · Windows · Linux</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2>Contact</h2>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/lilian-bastard-naminzo" target="_blank" aria-label="LinkedIn">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/Stark3rn" target="_blank" aria-label="GitHub">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+            </a>
+            <a href="https://tryhackme.com/p/Stark3rn" target="_blank" aria-label="TryHackMe">
+                <img src="https://assets.tryhackme.com/img/favicon.png" alt="TryHackMe">
+            </a>
+        </div>
+
+        <div class="contact-email-card">
+            <a href="mailto:lbastardnaminzo@gmail.com">
+                <img src="svg/email.svg" alt="Email" class="email-icon">
+                <span>lbastardnaminzo@gmail.com</span>
+            </a>
+        </div>
+    </section>
+</body>
+</html>
