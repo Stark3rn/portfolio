@@ -301,6 +301,10 @@ section {
     background: rgba(248, 113, 113, 0.1);
 }
 
+.projects-section h2 {
+    text-align: center;
+}
+
 .project-filters {
     display: flex;
     flex-wrap: wrap;
@@ -345,8 +349,8 @@ section {
 }
 
 .contact-links a {
-    width: 55px;
-    height: 55px;
+    width: 75px;
+    height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -362,8 +366,8 @@ section {
 }
 
 .contact-links img {
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
 }
 
 .contact-email-card {
