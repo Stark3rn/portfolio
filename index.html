@@ -33,8 +33,7 @@
             <h2>Blue Teamer <strong><span class="gradient-text">@ Bachelor Cybersécurité - ESIEA</span></strong></h2>
             <p>Threat Intelligence, Administration systèmes Linux, Réseaux...</p>
             <div class="hero-info">
-                <img src="svg/warning.svg" alt="Warning" class="warning-icon">
-                <h2>A la recherche d'un stage de 2 à 3 mois durant la période juin-aout</h2>
+                <h2><img src="svg/warning.svg" alt="Warning" class="warning-icon"> A la recherche d'un stage de 2 à 3 mois durant la période juin-aout<br>Recherche aussi une alternance rythme 1 semaine / 1 semaine pour 2026-2027</h2>
             </div>
             <div class="git-project-btn" style="margin-right: 30%; margin-left: 30%;">
                 <a href="docs/my_cv.pdf" download="" aria-label="Télécharger le CV de Lilian BASTARD NAMINZO">
@@ -75,6 +74,14 @@
                 <span class="skill-name">Réseaux</span>
                 <span class="skill-desc">Connaissance du <span class="gradient-text">Modèle OSI</span>, Modélisation de réseaux <span class="gradient-text">Cisco Packet Tracer</span>, Protocoles TCP/IP, Sous-Réseautage... Attaques basiques : Man In The Middle, ARP Spoofing, MAC Flooding, Attaque par déconnexion WiFi</span>
             </div>
+            <div class="skill-card">
+                <span class="skill-name">Pentest</span>
+                <span class="skill-desc">Tests de pénétration Web et escalation de privilèges via le scan de réseaux et l'utilisation d'<span class="gradient-text">injections SQL, XSS, IDOR, API Testing, Path Traversal ou Command Injection</span>. Utilisation d'outils tels que <span class="gradient-text">Hashcat, Nmap, Gobuster ou même BurpSuite</span></span>
+            </div>
+            <div class="skill-card">
+                <span class="skill-name">Git</span>
+                <span class="skill-desc">Utilisation de Git (Gitlab, Github...) afin de travailler en équipe et de versionner un projet informatique. Gestion des branches, pull requests, merges, et adepte du <span class="gradient-text">Clean Code</span> pour le travail collaboratif.</span>
+            </div>
         </div>
     </section>
 
@@ -91,10 +98,13 @@
         <div class="project-filters">
             <button class="filter-btn active" onclick="filterByCategory('all', event)">Tous</button>
             <button class="filter-btn" onclick="filterByCategory('blue-team', event)">Blue Team</button>
+            <button class="filter-btn" onclick="filterByCategory('red-team', event)">Red Team</button>
             <button class="filter-btn" onclick="filterByCategory('threat-intel', event)">Threat Intelligence</button>
             <!--- <button class="filter-btn" onclick="filterByCategory('reverse', event)">Reverse</button> --->
             <button class="filter-btn" onclick="filterByCategory('python', event)">Python</button>
             <button class="filter-btn" onclick="filterByCategory('langage-c', event)">Langage C</button>
+            <button class="filter-btn" onclick="filterByCategory('cryptography', event)">Cryptographie</button>
+            <button class="filter-btn" onclick="filterByCategory('web', event)">Web</button>
         </div>
 
         <div class="projects-grid">
@@ -185,11 +195,101 @@
                             <li>Possibilité d'ajouter des feeds / canaux / serveurs de réseaux sociaux uns par uns ou via fichiers OPML, CSV ou JSON</li>
                         </ul>
                     </p>
+                    <br>
+                    <span class="project-tech">Python · Windows · Linux · Threat Intelligence</span>
+                </div>
+            </div>
+            
+            <div class="project-card" data-tags="blue-team red-team python">
+                <div class="project-image"><img src="img/snowyfi.svg" width="100%" height="100%"></div>
+                <div class="project-content">
+                    <h3>Snowyfi</h3>
+                    <div class="project-tags">
+                        <span class="tag tag-blue">Blue Team</span>
+                        <span class="tag tag-red">Red Team</span>
+                        <span class="tag tag-green">Python</span>
+                    </div>
+                    <p>Outil de gestion WiFi. Cet outil contient :
+                        <ul>
+                            <li>Une fonctionnalité de scan de réseaux environnants</li>
+                            <li>Une carte de France où les WiFis scannés sont placés</li>
+                            <li>Une base de donnée SQLite3 permettant le stockage des datas sur les WiFis scannés</li>
+                            <li>La notification à l'utilisateur de tous WiFis suspects (Evil Twin, BSSID Spoofing, WiFis ouverts...)</li>
+                            <li>Détection du fabriquant d'un AP via table OUI et attaque via mots de passes par défaut</li>
+                        </ul>
+                    </p>
                     <div class="git-project-btn">
-                        <a href="" target="_blank">Visiter le GitHub</a>
+                        <a href="https://gitlab.esiea.fr/bastardnaminzo/snowyfi" target="_blank">Visiter le GitLab</a>
                     </div>
                     <br>
                     <span class="project-tech">Python · Windows · Linux</span>
+                </div>
+            </div>
+            <div class="project-card" data-tags="blue-team python cryptography">
+                <div class="project-image"><img src="img/bad_primes.png" width="100%" height="100%"></div>
+                <div class="project-content">
+                    <h3>Bad Primes</h3>
+                    <div class="project-tags">
+                        <span class="tag tag-blue">Blue Team</span>
+                        <span class="tag tag-purple">Cryptographie</span>
+                        <span class="tag tag-green">Python</span>
+                    </div>
+                    <p>Outil d'analyse de certificats x509. Cet outil permet :
+                        <ul>
+                            <li>Le crawling multi-threadé de certificats x509 via des fichiers CSV contenant des noms de domaines</li>
+                            <li>Le stockage des informations obtenues dans une base de données SQLite3</li>
+                            <li>La détection de certificats vulnérables via l'algorithme BatchGCD (implémentation c++)</li>
+                            <li>Visualisation de statistiques concernant les certificats récupérés (tendances algorithmiques, CN les plus communs...)</li>
+                        </ul>
+                    </p>
+                    <br>
+                    <span class="project-tech">Python · Windows · Cryptographie · Linux</span>
+                </div>
+            </div>
+            <div class="project-card" data-tags="blue-team web threat-intel">
+                <div class="project-image"><img src="img/cyber_fox.png" width="100%" height="100%"></div>
+                <div class="project-content">
+                    <h3>CyberFox</h3>
+                    <div class="project-tags">
+                        <span class="tag tag-blue">Blue Team</span>
+                        <span class="tag tag-purple">Web</span>
+                        <span class="tag tag-purple">Threat Intelligence</span>
+                    </div>
+                    <p>Page d'accueil pour navigateurs web :
+                        <ul>
+                            <li>Permet d'accéder à une liste de sites web fréquemment visités via une liste configurable</li>
+                            <li>Des sources de flux RSS sont listées et crawlées à chaque démarrage du navigateur, permettant une veille cyber continue</li>
+                            <li>Les articles sont analysés et triés par catégorie (CVE ou Threat Intelligence...)</li>
+                        </ul>
+                    </p>
+                    <div class="git-project-btn">
+                        <a href="https://github.com/Stark3rn/cyber_fox" target="_blank">Visiter le GitHub</a>
+                    </div>
+                    <br>
+                    <span class="project-tech">Web · Threat Intelligence</span>
+                </div>
+            </div>
+            <div class="project-card" data-tags="blue-team web">
+                <div class="project-image"><img src="img/nubii_logo.png" width="100%" height="100%"></div>
+                <div class="project-content">
+                    <h3>Nubii</h3>
+                    <div class="project-tags">
+                        <span class="tag tag-blue">Blue Team</span>
+                        <span class="tag tag-purple">Web</span>
+                    </div>
+                    <p>Réseau Social codé en PHP. Celui-ci contient les fonctionnalités suivantes :
+                        <ul>
+                            <li>Gestion du système grâce à une base de données mariadb "CRUD" avec des prepare PDO_MySQL ainsi que des Regex</li>
+                            <li>Intégration de publicité ciblée</li>
+                            <li>API complete pour intéragir avec le site</li>
+                            <li>Intégration d'un payload copiable afin de rediriger les utilisateurs vers sont profil Nubii, mais qui récupère en réalité toutes les infos de la victime</li>
+                        </ul>
+                    </p>
+                    <div class="git-project-btn">
+                        <a href="https://github.com/Stark3rn/netsoc/" target="_blank">Visiter le GitHub</a>
+                    </div>
+                    <br>
+                    <span class="project-tech">Web · Threat Intelligence</span>
                 </div>
             </div>
         </div>
